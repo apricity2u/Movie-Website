@@ -21,11 +21,12 @@ export default function NowPlayingList() {
       <h2>Now Playing List</h2>
       <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", textAlign: "center", fontSize: "0.8rem" }}>
         {movies.map((movie) => {
-          const { title, poster_path } = movie;
+          const { title, poster_path, id } = movie;
           return (
             <MovieSimpleDetail
               title={title}
               poster_path={poster_path}
+              id={id}
             ></MovieSimpleDetail>
           );
         })}
