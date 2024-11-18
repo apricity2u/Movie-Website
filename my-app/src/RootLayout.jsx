@@ -4,9 +4,11 @@ import { Outlet } from "react-router-dom";
 export default function RootLayout() {
   return (
     <>
-      <header>헤더</header>
+      <header>
+        <h1>Movie</h1>
+      </header>
       <Outlet></Outlet>
-      <footer>푸터</footer>
+      <footer>copyright HAEUN</footer>
     </>
   );
 }
