@@ -1,6 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import MovieSimpleDetail from "../Components/MovieSimpleDetail";
+import React, { useState } from "react";
 import MovieCategory from "../Components/MovieCategory";
 
 export default function Home() {
@@ -26,7 +24,7 @@ export default function Home() {
 
         return (
           <li>
-            <MovieCategory path={`/${path}`}>{title}</MovieCategory>
+            <MovieCategory path={path}>{title}</MovieCategory>
           </li>
         );
       })}
