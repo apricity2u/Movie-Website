@@ -1,12 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import RootHeader from "./Components/RootHeader";
 
 export default function RootLayout() {
   return (
     <>
-      <header>
-        <h1>Movie</h1>
-      </header>
+      <RootHeader></RootHeader>
       <Outlet></Outlet>
       <footer>copyright HAEUN</footer>
     </>
