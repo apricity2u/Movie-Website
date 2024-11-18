@@ -22,7 +22,9 @@ export default function Home() {
       <li>
         <div style={{display: 'flex', gap: '1rem'}}>
           <h2>Popular</h2>
-          <button>...more</button>
+          <Link to='/popular'>
+            <button>...more</button>
+          </Link>
         </div>
         <div style={{display: 'flex', gap: '1rem'}}>
           <MovieSimpleDetail></MovieSimpleDetail>
@@ -34,7 +36,9 @@ export default function Home() {
       <li>
         <div style={{display: 'flex', gap: '1rem'}}>
           <h2>Top Rated</h2>
-          <button>...more</button>
+          <Link to='/top_rated'>
+            <button>...more</button>
+          </Link>
         </div>
         <div style={{display: 'flex', gap: '1rem'}}>
           <MovieSimpleDetail></MovieSimpleDetail>
