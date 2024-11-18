@@ -25,9 +25,9 @@ export default function MovieCategory({ children, path }) {
           <button>...more</button>
         </Link>
       </div>
-      <div style={{ display: "flex", gap: "1rem" }}>
+      <div style={{ display: "flex", gap: "1rem", textAlign: "center" }}>
         {
-          movies.map((movie) => {
+          movies.slice(0,10).map((movie) => {
             const {title, poster_path} = movie
             return <MovieSimpleDetail title={title} poster_path={poster_path} ></MovieSimpleDetail>
           })

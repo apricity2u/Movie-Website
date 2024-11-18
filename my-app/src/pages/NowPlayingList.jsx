@@ -19,7 +19,7 @@ export default function NowPlayingList() {
   return (
     <>
       <h2>Now Playing List</h2>
-      <div style={{ display: "flex", gap: "1rem" }}>
+      <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", textAlign: "center", fontSize: "0.8rem" }}>
         {movies.map((movie) => {
           const { title, poster_path } = movie;
           return (

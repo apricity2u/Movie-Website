@@ -19,7 +19,7 @@ export default function PopularList() {
   return (
     <>
       <h2>Popular List</h2>
-      <div style={{ display: "flex", gap: "1rem" }}>
+      <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", textAlign: "center", fontSize: "0.8rem" }}>
         {movies.map((movie) => {
           const { title, poster_path } = movie;
           return (
