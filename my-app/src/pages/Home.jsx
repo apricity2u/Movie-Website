@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
+import MovieSimpleDetail from '../Components/MovieSimpleDetail'
 
 export default function Home() {
   return (
@@ -12,22 +13,10 @@ export default function Home() {
           </Link>
         </div>
         <div style={{display: 'flex', gap: '1rem'}}>
-          <div>
-            <img src="" alt="영화포스터" />
-            <h3>영화제목</h3>
-          </div>
-          <div>
-            <img src="" alt="영화포스터" />
-            <h3>영화제목</h3>
-          </div>
-          <div>
-            <img src="" alt="영화포스터" />
-            <h3>영화제목</h3>
-          </div>
-          <div>
-            <img src="" alt="영화포스터" />
-            <h3>영화제목</h3>
-          </div>
+          <MovieSimpleDetail></MovieSimpleDetail>
+          <MovieSimpleDetail></MovieSimpleDetail>
+          <MovieSimpleDetail></MovieSimpleDetail>
+          <MovieSimpleDetail></MovieSimpleDetail>
         </div>
       </li>
       <li>
@@ -36,22 +25,10 @@ export default function Home() {
           <button>...more</button>
         </div>
         <div style={{display: 'flex', gap: '1rem'}}>
-          <div>
-            <img src="" alt="영화포스터" />
-            <h3>영화제목</h3>
-          </div>
-          <div>
-            <img src="" alt="영화포스터" />
-            <h3>영화제목</h3>
-          </div>
-          <div>
-            <img src="" alt="영화포스터" />
-            <h3>영화제목</h3>
-          </div>
-          <div>
-            <img src="" alt="영화포스터" />
-            <h3>영화제목</h3>
-          </div>
+          <MovieSimpleDetail></MovieSimpleDetail>
+          <MovieSimpleDetail></MovieSimpleDetail>
+          <MovieSimpleDetail></MovieSimpleDetail>
+          <MovieSimpleDetail></MovieSimpleDetail>
         </div>
       </li>
       <li>
@@ -60,22 +37,10 @@ export default function Home() {
           <button>...more</button>
         </div>
         <div style={{display: 'flex', gap: '1rem'}}>
-          <div>
-            <img src="" alt="영화포스터" />
-            <h3>영화제목</h3>
-          </div>
-          <div>
-            <img src="" alt="영화포스터" />
-            <h3>영화제목</h3>
-          </div>
-          <div>
-            <img src="" alt="영화포스터" />
-            <h3>영화제목</h3>
-          </div>
-          <div>
-            <img src="" alt="영화포스터" />
-            <h3>영화제목</h3>
-          </div>
+          <MovieSimpleDetail></MovieSimpleDetail>
+          <MovieSimpleDetail></MovieSimpleDetail>
+          <MovieSimpleDetail></MovieSimpleDetail>
+          <MovieSimpleDetail></MovieSimpleDetail>
         </div>
       </li>
     </ul>
