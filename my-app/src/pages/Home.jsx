@@ -1,52 +1,35 @@
-import React from 'react'
-import {Link} from "react-router-dom"
-import MovieSimpleDetail from '../Components/MovieSimpleDetail'
+import React from "react";
+import { Link } from "react-router-dom";
+import MovieSimpleDetail from "../Components/MovieSimpleDetail";
+import MovieCategory from "../Components/MovieCategory";
 
 export default function Home() {
+  const categories = [
+    {
+      path: "now_playing",
+      title: "Now Playing",
+    },
+    {
+      path: "popular",
+      title: "Popular",
+    },
+    {
+      path: "top_rated",
+      title: "Top Rated",
+    },
+  ];
+
   return (
     <ul>
-      <li>
-        <div style={{display: 'flex', gap: '1rem'}}>
-          <h2>Now Playing</h2>
-          <Link to='/now_playing'>
-            <button>...more</button>
-          </Link>
-        </div>
-        <div style={{display: 'flex', gap: '1rem'}}>
-          <MovieSimpleDetail></MovieSimpleDetail>
-          <MovieSimpleDetail></MovieSimpleDetail>
-          <MovieSimpleDetail></MovieSimpleDetail>
-          <MovieSimpleDetail></MovieSimpleDetail>
-        </div>
-      </li>
-      <li>
-        <div style={{display: 'flex', gap: '1rem'}}>
-          <h2>Popular</h2>
-          <Link to='/popular'>
-            <button>...more</button>
-          </Link>
-        </div>
-        <div style={{display: 'flex', gap: '1rem'}}>
-          <MovieSimpleDetail></MovieSimpleDetail>
-          <MovieSimpleDetail></MovieSimpleDetail>
-          <MovieSimpleDetail></MovieSimpleDetail>
-          <MovieSimpleDetail></MovieSimpleDetail>
-        </div>
-      </li>
-      <li>
-        <div style={{display: 'flex', gap: '1rem'}}>
-          <h2>Top Rated</h2>
-          <Link to='/top_rated'>
-            <button>...more</button>
-          </Link>
-        </div>
-        <div style={{display: 'flex', gap: '1rem'}}>
-          <MovieSimpleDetail></MovieSimpleDetail>
-          <MovieSimpleDetail></MovieSimpleDetail>
-          <MovieSimpleDetail></MovieSimpleDetail>
-          <MovieSimpleDetail></MovieSimpleDetail>
-        </div>
-      </li>
+      {categories.map((category) => {
+        const { path, title } = category;
+
+        return (
+          <li>
+            <MovieCategory path={`/${path}`}>{title}</MovieCategory>
+          </li>
+        );
+      })}
     </ul>
-  )
+  );
 }
