@@ -29,12 +29,12 @@ const router = createBrowserRouter([
         element: <TopRatedList />
       },
       {
-        path: '/movie_detail',
-        element: <MovieDetail />
-      },
-      {
         path: '/mypage',
         element: <Mypage />
+      },
+      {
+        path: '/:movieId',
+        element: <MovieDetail />
       }
     ],
   },

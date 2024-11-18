@@ -11,6 +11,12 @@ const movieApi = {
       `/${path}?${params}`
     );
     return resposne.data;
+  }, 
+  getMovieDetail: async (movieId) => {
+    const resposne = await api.get(
+      `/${movieId}?${params}`
+    );
+    return resposne.data;
   },
 };
 

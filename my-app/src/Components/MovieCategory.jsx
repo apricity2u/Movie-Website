@@ -28,8 +28,8 @@ export default function MovieCategory({ children, path }) {
       <div style={{ display: "flex", gap: "1rem", textAlign: "center" }}>
         {
           movies.slice(0,10).map((movie) => {
-            const {title, poster_path} = movie
-            return <MovieSimpleDetail title={title} poster_path={poster_path} ></MovieSimpleDetail>
+            const {title, poster_path, id} = movie
+            return <MovieSimpleDetail title={title} poster_path={poster_path} id={id}></MovieSimpleDetail>
           })
         }
       </div>
