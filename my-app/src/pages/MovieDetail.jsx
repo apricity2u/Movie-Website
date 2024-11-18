@@ -8,7 +8,7 @@ export default function MovieDetail() {
         <img src="" alt="영화포스터" />
         <div>
           <h3>영화제목</h3>
-          <button>관심</button>
+          <button>찜</button>
         </div>
         <div>
           <h4>상세정보</h4>

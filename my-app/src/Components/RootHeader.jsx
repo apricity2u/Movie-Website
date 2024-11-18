@@ -21,6 +21,10 @@ export default function RootHeader() {
           </Link>
         </ul>
       </nav>
+      <button>로그인</button>
+      <Link to='/mypage'>
+        <button>마이페이지</button>
+      </Link>
     </header>
   );
 }

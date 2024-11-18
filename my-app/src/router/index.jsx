@@ -5,6 +5,7 @@ import NowPlayingList from "../pages/NowPlayingList";
 import PopularList from "../pages/PopularList";
 import TopRatedList from "../pages/TopRatedList";
 import MovieDetail from "../pages/MovieDetail";
+import Mypage from "../pages/Mypage";
 
 const router = createBrowserRouter([
   {
@@ -16,20 +17,24 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'now_playing',
+        path: '/now_playing',
         element: <NowPlayingList />
       },
       {
-        path: 'popular',
+        path: '/popular',
         element: <PopularList />
       },
       {
-        path: 'top_rated',
+        path: '/top_rated',
         element: <TopRatedList />
       },
       {
-        path: 'movie_detail',
+        path: '/movie_detail',
         element: <MovieDetail />
+      },
+      {
+        path: '/mypage',
+        element: <Mypage />
       }
     ],
   },
