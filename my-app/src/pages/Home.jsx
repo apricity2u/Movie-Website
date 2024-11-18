@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom"
 
 export default function Home() {
   return (
@@ -6,7 +7,9 @@ export default function Home() {
       <li>
         <div style={{display: 'flex', gap: '1rem'}}>
           <h2>Now Playing</h2>
-          <button>...more</button>
+          <Link to='/now_playing'>
+            <button>...more</button>
+          </Link>
         </div>
         <div style={{display: 'flex', gap: '1rem'}}>
           <div>
