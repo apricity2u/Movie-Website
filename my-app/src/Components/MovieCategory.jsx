@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MovieSimpleDetail from "../MovieSimpleDetail";
+import MovieSimpleDetail from "./MovieSimpleDetail";
 
 export default function MovieCategory({ children, path }) {
   return (

@@ -2,29 +2,42 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function RootHeader() {
+  const categories = [
+    {
+      path: "now_playing",
+      title: "Now Playing",
+    },
+    {
+      path: "popular",
+      title: "Popular",
+    },
+    {
+      path: "top_rated",
+      title: "Top Rated",
+    },
+  ];
 
   function handleSubmit(e) {
     e.preventDefault();
   }
-
 
   return (
     <header>
       <h1>Movie</h1>
       <nav>
         <ul>
-          <Link to="/">
-            <li>Home</li>
-          </Link>
-          <Link to="/now_playing">
-            <li>Now Playing List</li>
-          </Link>
-          <Link to="/popular">
-            <li>Popular List</li>
-          </Link>
-          <Link to="/top_rated">
-            <li>Top Rated List</li>
-          </Link>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          {categories.map((category) => {
+            const { path, title } = category;
+
+            return (
+              <li>
+                <Link to={`/${path}`}>{`${title} List`}</Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
       <form onSubmit={handleSubmit}>
