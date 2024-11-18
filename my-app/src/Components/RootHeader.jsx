@@ -40,7 +40,7 @@ export default function RootHeader() {
           })}
         </ul>
       </nav>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{display: "flex", flexDirection: "column", width: "200px"}}>
         <label htmlFor="user">Username</label>
         <input type="text" name="user" id="user" />
         <label htmlFor="password">Password</label>
