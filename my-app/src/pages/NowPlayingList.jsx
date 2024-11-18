@@ -1,17 +1,15 @@
 import React from "react";
 import MovieSimpleDetail from "../Components/MovieSimpleDetail";
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import movieApi from "../api/movieApi";
 
-export default function MovieListMore() {
+export default function NowPlayingList() {
 
-  const { category } = useParams();
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     async function fetchMovieList() {
-      const data = await movieApi.getMovieList(category);
+      const data = await movieApi.getMovieList("now_playing");
 
       setMovies(data.results);
     }
@@ -20,7 +18,7 @@ export default function MovieListMore() {
 
   return (
     <>
-      <h2>{category}</h2>
+      <h2>Now Playing List</h2>
       <div style={{ display: "flex", gap: "1rem" }}>
         {movies.map((movie) => {
           const { title, poster_path } = movie;
