@@ -4,18 +4,21 @@ import movieApi from "../api/movieApi";
 
 export default function MovieDetail() {
   const [movieDetail, setMovieDetail] = useState({});
+  const [movieReviews, setMovieReview] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
     async function fetchMovieDetail() {
       const data = await movieApi.getMovieDetail(movieId);
+      const reviewData = await movieApi.getMovieReview(movieId);
 
       setMovieDetail(data);
+      setMovieReview(reviewData.results);
     }
     fetchMovieDetail();
-  });
+  }, []);
 
-  const {title, poster_path, overview} = movieDetail
+  const { title, poster_path, overview } = movieDetail;
 
   return (
     <>
@@ -23,10 +26,10 @@ export default function MovieDetail() {
       <div>
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-          alt="영화포스터"
+          alt={`${title}`}
           width="200px"
         />
-        <div style={{display: "flex"}}>
+        <div style={{ display: "flex" }}>
           <h3>{title}</h3>
           <button>찜</button>
         </div>
@@ -36,7 +39,14 @@ export default function MovieDetail() {
         </div>
         <div>
           <h4>후기</h4>
-          <p>후기디테일</p>
+          {movieReviews.map((review) => {
+            return (
+            <>
+              <div>Reviewer: {review.author}</div>
+              <p>{review.content}</p>;
+            </>
+            )
+          })}
         </div>
       </div>
     </>
