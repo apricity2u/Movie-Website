@@ -7,11 +7,11 @@ const likedMovieSlice = createSlice({
   initialState,
   reducers: {
     addLikedMovie: (state, action) => {
-      state[action.payload.title] = action.payload;
+      state[action.payload.id] = action.payload;
     },
     removeLikedMovie: (state, action) => {
-      delete state.title
-    }
+      delete state[action.payload.id];
+    },
   },
 });
 

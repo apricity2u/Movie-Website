@@ -5,16 +5,20 @@ import {
   addLikedMovie,
   removeLikedMovie,
 } from "../store/slices/likedMovieSlice";
+
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { changeLikedStatus } from "../store/slices/isLikedSlice";
 
 export default function MovieDetail() {
   const [movieDetail, setMovieDetail] = useState({});
   const [movieReviews, setMovieReview] = useState([]);
+  const [isLiked, setIsLiked] = useState(false);
+
   const { isLoggedIn } = useSelector((state) => state.auth);
-  const { isLiked } = useSelector((state) => state.isLiked);
+  const likedMovies = useSelector((state) => state.likedMovies);
+
   const { movieId } = useParams();
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -33,13 +37,13 @@ export default function MovieDetail() {
     if (!isLoggedIn) {
       navigate("/login");
     }
-
-    dispatch(changeLikedStatus(isLiked));
-
+    
+    setIsLiked(!isLiked);
     dispatch(
-      isLiked ? addLikedMovie(movieDetail) : removeLikedMovie(movieDetail)
+      isLiked ? removeLikedMovie(movieDetail) : addLikedMovie(movieDetail)
     );
-    e.target.style.backgroundColor = isLiked ? "pink" : "";
+    e.target.style.backgroundColor = isLiked ? "" : "pink";
+
   }
 
   const { title, poster_path, overview } = movieDetail;
@@ -67,10 +71,10 @@ export default function MovieDetail() {
             const { author, content } = review;
 
             return (
-              <>
+              <div key={content}>
                 <div>Reviewer: {author}</div>
                 <p>{content}</p>;
-              </>
+              </div>
             );
           })}
         </div>

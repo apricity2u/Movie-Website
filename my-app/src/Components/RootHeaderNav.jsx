@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
 
-export default function RootHeaderNav({categories}) {
+export default function RootHeaderNav({ categories }) {
   return (
     <nav>
       <ul>
@@ -12,12 +12,12 @@ export default function RootHeaderNav({categories}) {
           const { path, title } = category;
 
           return (
-            <li>
+            <li key={path}>
               <Link to={`/${path}`}>{`${title} List`}</Link>
             </li>
           );
         })}
       </ul>
     </nav>
-  )
+  );
 }
