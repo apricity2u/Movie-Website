@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import movieApi from "../api/movieApi";
-import { addLikedMovie } from "../store/slices/likedMovieSlice";
+import {
+  addLikedMovie,
+  removeLikedMovie,
+} from "../store/slices/likedMovieSlice";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { changeLikedStatus } from "../store/slices/isLikedSlice";
 
 export default function MovieDetail() {
   const [movieDetail, setMovieDetail] = useState({});
   const [movieReviews, setMovieReview] = useState([]);
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const { isLiked } = useSelector((state) => state.isLiked);
   const { movieId } = useParams();
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchMovieDetail() {
@@ -23,9 +30,15 @@ export default function MovieDetail() {
   }, []);
 
   function myMovieStatus(e) {
-    setIsLiked(!isLiked);
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
 
-    dispatch(addLikedMovie(movieDetail));
+    dispatch(changeLikedStatus(isLiked));
+
+    dispatch(
+      isLiked ? addLikedMovie(movieDetail) : removeLikedMovie(movieDetail)
+    );
     e.target.style.backgroundColor = isLiked ? "pink" : "";
   }
 

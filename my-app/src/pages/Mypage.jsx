@@ -6,15 +6,13 @@ import { logout } from "../store/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function Mypage() {
-  const [ likedMovies ] = useSelector((state) => state.likedMovies);
+  const { likedMovies } = useSelector((state) => state.likedMovies);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  console.log(likedMovies)
-
   function handleLogout() {
     dispatch(logout());
-
+    
     navigate("/");
   }
 
@@ -35,6 +33,10 @@ export default function Mypage() {
             ></MovieSimpleDetail>
           );
         })} */}
+        <MovieSimpleDetail></MovieSimpleDetail>
+        <MovieSimpleDetail></MovieSimpleDetail>
+        <MovieSimpleDetail></MovieSimpleDetail>
+        <MovieSimpleDetail></MovieSimpleDetail>
       </div>
       <button onClick={handleLogout}>로그아웃</button>
     </>

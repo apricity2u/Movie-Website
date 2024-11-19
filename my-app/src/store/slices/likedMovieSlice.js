@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
+const initialState = {};
 
 const likedMovieSlice = createSlice({
   name: "likedMovies",
   initialState,
   reducers: {
     addLikedMovie: (state, action) => {
-      state.push(action.payload);
-      console.log('데이터 추가됨')
+      state[action.payload.title] = action.payload;
+    },
+    removeLikedMovie: (state, action) => {
+      delete state.title
     }
   },
 });
