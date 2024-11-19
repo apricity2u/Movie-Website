@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import RootHeadrNav from "./RootHeaderComponents/RootHeadrNav";
 import RootHeaderForm from "./RootHeaderComponents/RootHeaderForm";
+import { useSelector } from "react-redux";
 
 export default function RootHeader() {
+  const { isLoggedIn } = useSelector((state) => state.auth);
+
   const categories = [
     {
       path: "now_playing",
@@ -22,11 +25,13 @@ export default function RootHeader() {
   return (
     <header>
       <h1>Movie</h1>
-      <RootHeadrNav categories = {categories}></RootHeadrNav>
+      <RootHeadrNav categories={categories}></RootHeadrNav>
       <RootHeaderForm></RootHeaderForm>
-      <Link to="/mypage">
-        <button>마이페이지</button>
-      </Link>
+      {isLoggedIn && (
+        <Link to="/mypage">
+          <button>마이페이지</button>
+        </Link>
+      )}
     </header>
   );
 }
