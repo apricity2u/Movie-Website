@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import movieApi from "../api/movieApi";
-import {
-  addLikedMovie,
-  removeLikedMovie,
-} from "../store/slices/likedMovieSlice";
-
+import { addLikedMovie, removeLikedMovie } from "../store/slices/likedMovieSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -22,6 +18,8 @@ export default function MovieDetail() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const buttonRef = useRef(null);
+
   useEffect(() => {
     async function fetchMovieDetail() {
       const data = await movieApi.getMovieDetail(movieId);
@@ -29,21 +27,26 @@ export default function MovieDetail() {
 
       setMovieDetail(data);
       setMovieReview(reviewData.results);
+
+      buttonRef.current.style.backgroundColor =
+        movieId in likedMovies ? "pink" : "";
     }
     fetchMovieDetail();
   }, []);
 
-  function myMovieStatus(e) {
+  useEffect(() => {
+    dispatch(
+      isLiked ? addLikedMovie(movieDetail) : removeLikedMovie(movieDetail)
+    );
+    buttonRef.current.style.backgroundColor = isLiked ? "pink" : "";
+  }, [isLiked]);
+
+  function myMovieStatus() {
     if (!isLoggedIn) {
       navigate("/login");
     }
-    
-    setIsLiked(!isLiked);
-    dispatch(
-      isLiked ? removeLikedMovie(movieDetail) : addLikedMovie(movieDetail)
-    );
-    e.target.style.backgroundColor = isLiked ? "" : "pink";
 
+    setIsLiked(!isLiked);
   }
 
   const { title, poster_path, overview } = movieDetail;
@@ -59,7 +62,9 @@ export default function MovieDetail() {
         />
         <div style={{ display: "flex" }}>
           <h3>{title}</h3>
-          <button onClick={myMovieStatus}>찜</button>
+          <button onClick={myMovieStatus} ref={buttonRef}>
+            찜
+          </button>
         </div>
         <div>
           <h4>줄거리</h4>
