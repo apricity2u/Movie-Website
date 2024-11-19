@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import movieApi from "../api/movieApi";
+import { addLikedMovie } from "../store/slices/likedMovieSlice";
+import { useDispatch } from "react-redux";
 
 export default function MovieDetail() {
   const [movieDetail, setMovieDetail] = useState({});
   const [movieReviews, setMovieReview] = useState([]);
   const { movieId } = useParams();
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     async function fetchMovieDetail() {
@@ -17,6 +21,13 @@ export default function MovieDetail() {
     }
     fetchMovieDetail();
   }, []);
+
+  function myMovieStatus(e) {
+    setIsLiked(!isLiked);
+
+    dispatch(addLikedMovie(movieDetail));
+    e.target.style.backgroundColor = isLiked ? "pink" : "";
+  }
 
   const { title, poster_path, overview } = movieDetail;
 
@@ -31,7 +42,7 @@ export default function MovieDetail() {
         />
         <div style={{ display: "flex" }}>
           <h3>{title}</h3>
-          <button>찜</button>
+          <button onClick={myMovieStatus}>찜</button>
         </div>
         <div>
           <h4>줄거리</h4>
@@ -40,15 +51,14 @@ export default function MovieDetail() {
         <div>
           <h4>후기</h4>
           {movieReviews.map((review) => {
-
-            const {author, content} = review
+            const { author, content } = review;
 
             return (
-            <>
-              <div>Reviewer: {author}</div>
-              <p>{content}</p>;
-            </>
-            )
+              <>
+                <div>Reviewer: {author}</div>
+                <p>{content}</p>;
+              </>
+            );
           })}
         </div>
       </div>
