@@ -32,7 +32,7 @@ export default function RootHeader() {
       )}
       {isLoggedIn && (
         <Link to="/mypage">
-          <button>마이페이지</button>
+          <button>MyPage</button>
         </Link>
       )}
     </header>

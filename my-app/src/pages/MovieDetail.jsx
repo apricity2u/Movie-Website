@@ -26,7 +26,7 @@ export default function MovieDetail() {
       <div>
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-          alt={`${title}`}
+          alt="사진 불러오는 중"
           width="200px"
         />
         <div style={{ display: "flex" }}>
@@ -40,10 +40,13 @@ export default function MovieDetail() {
         <div>
           <h4>후기</h4>
           {movieReviews.map((review) => {
+
+            const {author, content} = review
+
             return (
             <>
-              <div>Reviewer: {review.author}</div>
-              <p>{review.content}</p>;
+              <div>Reviewer: {author}</div>
+              <p>{content}</p>;
             </>
             )
           })}
