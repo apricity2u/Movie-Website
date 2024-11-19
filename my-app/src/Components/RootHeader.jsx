@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RootHeadrNav from "./RootHeaderComponents/RootHeadrNav";
+import RootHeaderNav from "./RootHeaderNav";
 import { useSelector } from "react-redux";
 
 export default function RootHeader() {
@@ -24,7 +24,7 @@ export default function RootHeader() {
   return (
     <header>
       <h1>Movie</h1>
-      <RootHeadrNav categories={categories}></RootHeadrNav>
+      <RootHeaderNav categories={categories}></RootHeaderNav>
       {!isLoggedIn && (
         <Link to="/login">
           <button>Login</button>

@@ -1,7 +1,7 @@
 import React from 'react'
-import MovieSimpleDetail from '../MovieSimpleDetail';
+import MovieSimpleDetail from './MovieSimpleDetail';
 import { useEffect, useState } from "react";
-import movieApi from '../../api/movieApi';
+import movieApi from '../api/movieApi';
 
 export default function MovieListContainer({children}) {
 

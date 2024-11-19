@@ -1,12 +1,12 @@
 import React from "react";
-import MovieListContainer from "../Components/MovieListComponent/MovieListContainer";
+import MovieListContainer from "../Components/MovieListContainer";
 
 export default function TopRatedList() {
 
   return (
     <>
-      <h2>Top Rated List</h2>
-      <MovieListContainer>top_rated</MovieListContainer>
+      <h2> List</h2>
+      <MovieListContainer>now_playing</MovieListContainer>
     </>
   );
 }

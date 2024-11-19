@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-export default function RootHeadrNav({categories}) {
+export default function RootHeaderNav({categories}) {
   return (
     <nav>
       <ul>

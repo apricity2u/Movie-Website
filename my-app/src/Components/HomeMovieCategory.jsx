@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MovieSimpleDetail from "../MovieSimpleDetail";
-import movieApi from "../../api/movieApi";
+import MovieSimpleDetail from "./MovieSimpleDetail";
+import movieApi from "../api/movieApi";
 import { useState, useEffect } from "react";
 
 export default function HomeMovieCategory({ children, path }) {

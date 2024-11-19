@@ -1,5 +1,5 @@
 import React from "react";
-import MovieListContainer from "../Components/MovieListComponent/MovieListContainer";
+import MovieListContainer from "../Components/MovieListContainer";
 
 export default function PopularList() {
 

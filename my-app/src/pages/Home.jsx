@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HomeMovieCategory from "../Components/HomeComponent/HomeMovieCategory";
+import HomeMovieCategory from "../Components/HomeMovieCategory";
 
 export default function Home() {
   const categories = [
