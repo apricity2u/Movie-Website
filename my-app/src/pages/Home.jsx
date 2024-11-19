@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MovieCategory from "../Components/MovieCategory";
+import HomeMovieCategory from "../Components/HomeComponent/HomeMovieCategory";
 
 export default function Home() {
   const categories = [
@@ -24,7 +24,7 @@ export default function Home() {
 
         return (
           <li>
-            <MovieCategory path={path}>{title}</MovieCategory>
+            <HomeMovieCategory path={path}>{title}</HomeMovieCategory>
           </li>
         );
       })}
