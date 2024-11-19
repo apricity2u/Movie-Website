@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const isLikedSlice = createSlice({
-  name: "isliked",
+  name: "isLiked",
   initialState,
   reducers: {
     changeLikedStatus: (state, action) => {
