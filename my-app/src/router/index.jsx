@@ -6,6 +6,7 @@ import PopularList from "../pages/PopularList";
 import TopRatedList from "../pages/TopRatedList";
 import MovieDetail from "../pages/MovieDetail";
 import Mypage from "../pages/Mypage";
+import LoginForm from "../pages/LoginForm";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/mypage',
         element: <Mypage />
+      },
+      {
+        path: '/login',
+        element: <LoginForm />
       },
       {
         path: '/:movieId',
