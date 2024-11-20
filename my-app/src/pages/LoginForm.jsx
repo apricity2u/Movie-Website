@@ -2,19 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { login } from "../store/slices/authSlice";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import Button from "../Components/Button";
 
 export default function LoginForm() {
   const { isLoggedIn } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({ user: "", password: "" });
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate('/')
+      navigate("/");
     }
-  })
+  });
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,21 +29,27 @@ export default function LoginForm() {
 
   return (
     !isLoggedIn && (
-      <form
-        onSubmit={handleSubmit}
-        style={{ display: "flex", flexDirection: "column", width: "200px" }}
-      >
-        <label htmlFor="user">Username</label>
-        <input type="text" name="user" id="user" onChange={handleFormInput} />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          onChange={handleFormInput}
-        />
-        <button>로그인</button>
-      </form>
+      <div>
+        <form onSubmit={handleSubmit} className="form-style">
+          <label htmlFor="user">Username</label>
+          <input
+            type="text"
+            name="user"
+            id="user"
+            onChange={handleFormInput}
+            placeholder="username"
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            onChange={handleFormInput}
+            placeholder="password"
+          />
+          <Button>Login</Button>
+        </form>
+      </div>
     )
   );
 }

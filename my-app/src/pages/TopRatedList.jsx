@@ -5,8 +5,8 @@ export default function TopRatedList() {
 
   return (
     <>
-      <h2> List</h2>
-      <MovieListContainer>now_playing</MovieListContainer>
+      <h2 className="sub-title margin"> Top Rated List</h2>
+      <MovieListContainer>top_rated</MovieListContainer>
     </>
   );
 }

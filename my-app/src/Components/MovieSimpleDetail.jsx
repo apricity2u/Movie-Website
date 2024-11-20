@@ -6,8 +6,8 @@ export default function MovieSimpleDetail({title, poster_path, id}) {
   return (
     <div>
       <Link to={`/${id}`}>
-        <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="영화포스터" width="200" height="300"/>
-        <h3>{title}</h3>
+        <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="영화포스터" width="300" height="450"/>
+        <h3 className="movie-title">{title}</h3>
       </Link>
     </div>
   );

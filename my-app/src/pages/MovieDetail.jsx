@@ -58,9 +58,10 @@ export default function MovieDetail() {
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           alt="사진 불러오는 중"
-          width="200px"
+          width="300px"
+          height="400px"
         />
-        <div style={{ display: "flex" }}>
+        <div className="flex">
           <h3>{title}</h3>
           <button onClick={myMovieStatus} ref={buttonRef}>
             찜

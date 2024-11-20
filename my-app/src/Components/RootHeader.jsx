@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import RootHeaderNav from "./RootHeaderNav";
 import { useSelector } from "react-redux";
+import Button from "./Button";
 
 export default function RootHeader() {
   const { isLoggedIn } = useSelector((state) => state.auth);
@@ -23,7 +24,7 @@ export default function RootHeader() {
 
   return (
     <header>
-      <h1>Movie</h1>
+      <h1 className="main-title">Movie</h1>
       <RootHeaderNav categories={categories}></RootHeaderNav>
       <div>
         <div>영화 검색</div>
@@ -31,12 +32,12 @@ export default function RootHeader() {
       </div>
         {!isLoggedIn && (
           <Link to="/login">
-            <button>Login</button>
+            <Button>Login</Button>
           </Link>
         )}
         {isLoggedIn && (
           <Link to="/mypage">
-            <button>MyPage</button>
+            <Button>MyPage</Button>
           </Link>
         )}
     </header>

@@ -5,7 +5,7 @@ export default function PopularList() {
 
   return (
     <>
-      <h2>Popular List</h2>
+      <h2 className="sub-title margin">Popular List</h2>
       <MovieListContainer>popular</MovieListContainer>
     </>
   );

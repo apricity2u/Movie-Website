@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import MovieSimpleDetail from "./MovieSimpleDetail";
 import movieApi from "../api/movieApi";
 import { useState, useEffect } from "react";
+import Button from "./Button";
 
 export default function HomeMovieCategory({ children, path }) {
   const [movies, setMovies] = useState([]);
@@ -18,13 +19,15 @@ export default function HomeMovieCategory({ children, path }) {
 
   return (
     <>
-      <div style={{ display: "flex", gap: "1rem" }}>
-        <h2>{children}</h2>
-        <Link to={`/${path}`}>
-          <button>...more</button>
-        </Link>
+      <div className="flex-box">
+        <div className="flex-box margin">
+          <h2 className="sub-title">{children}</h2>
+          <Link to={`/${path}`}>
+            <Button>...more</Button>
+          </Link>
+        </div>
       </div>
-      <ul style={{ display: "flex", gap: "1rem", textAlign: "center" }}>
+      <ul className="flex-box">
         {movies.slice(0, 10).map((movie) => {
           const { title, poster_path, id } = movie;
           return (

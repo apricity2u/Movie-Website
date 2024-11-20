@@ -4,29 +4,28 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logout } from "../store/slices/authSlice";
 import { useNavigate } from "react-router-dom";
+import Button from "../Components/Button";
 
-export default function Mypage(){
-  
+export default function Mypage() {
   const likedMovies = useSelector((state) => state.likedMovies);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const likedMoviesList = Object.values(likedMovies)
+  const likedMoviesList = Object.values(likedMovies);
 
   function handleLogout() {
-    dispatch(logout())
+    dispatch(logout());
 
-    navigate('/')
+    navigate("/");
   }
 
   return (
     <>
-      <h2>Mypage</h2>
-      <div>내가 찜한 영화</div>
-      <div style={{ display: "flex", gap: "1rem" }}>
-      {likedMoviesList.map((likedMovie) => {
-
-          const {title, poster_path, id} = likedMovie
+      <h2 className="sub-title margin">Mypage</h2>
+      <h3 className="font-size-bigger">찜한 영화</h3>
+      <div className="flex-box">
+        {likedMoviesList.map((likedMovie) => {
+          const { title, poster_path, id } = likedMovie;
 
           return (
             <MovieSimpleDetail
@@ -37,6 +36,7 @@ export default function Mypage(){
           );
         })}
       </div>
-      <button onClick={handleLogout}>로그아웃</button>
+      <Button onClick={handleLogout}>Logout</Button>
     </>
-)}
+  );
+}
