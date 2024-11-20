@@ -25,16 +25,20 @@ export default function RootHeader() {
     <header>
       <h1>Movie</h1>
       <RootHeaderNav categories={categories}></RootHeaderNav>
-      {!isLoggedIn && (
-        <Link to="/login">
-          <button>Login</button>
-        </Link>
-      )}
-      {isLoggedIn && (
-        <Link to="/mypage">
-          <button>MyPage</button>
-        </Link>
-      )}
+      <div>
+        <div>영화 검색</div>
+        <input type="text" name="search" id="search" placeholder="search movie"/>
+      </div>
+        {!isLoggedIn && (
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link to="/mypage">
+            <button>MyPage</button>
+          </Link>
+        )}
     </header>
   );
 }
