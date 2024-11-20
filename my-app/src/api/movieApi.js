@@ -1,11 +1,6 @@
 import api from "./axios";
 
 const params = new URLSearchParams({
-  api_key: `${import.meta.env.VITE_TMDB_KEY}`,
-  language: "ko",
-});
-
-const engParams = new URLSearchParams({
   api_key: `${import.meta.env.VITE_TMDB_KEY}`
 });
 
@@ -19,7 +14,7 @@ const movieApi = {
     return response.data;
   },
   getMovieReview: async (movieId) => {
-    const response = await api.get(`/${movieId}/reviews?${engParams}`);
+    const response = await api.get(`/${movieId}/reviews?${params}`);
     return response.data;
   },
 };

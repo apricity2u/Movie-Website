@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import movieApi from "../api/movieApi";
-import { addLikedMovie, removeLikedMovie } from "../store/slices/likedMovieSlice";
+import {
+  addLikedMovie,
+  removeLikedMovie,
+} from "../store/slices/likedMovieSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -53,7 +56,7 @@ export default function MovieDetail() {
 
   return (
     <>
-      <h2>MovieDetail</h2>
+      <h2 className="sub-title margin">MovieDetail</h2>
       <div>
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
@@ -61,12 +64,14 @@ export default function MovieDetail() {
           width="300px"
           height="400px"
         />
-        <div className="flex">
           <h3>{title}</h3>
-          <button onClick={myMovieStatus} ref={buttonRef}>
+          <button
+            onClick={myMovieStatus}
+            ref={buttonRef}
+            className="button-style"
+          >
             찜
           </button>
-        </div>
         <div>
           <h4>줄거리</h4>
           <p>{overview}</p>

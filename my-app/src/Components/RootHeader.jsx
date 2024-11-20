@@ -27,7 +27,7 @@ export default function RootHeader() {
       <h1 className="main-title">Movie</h1>
       <RootHeaderNav categories={categories}></RootHeaderNav>
       <div>
-        <div>영화 검색</div>
+        <div>Search Movie</div>
         <input type="text" name="search" id="search" placeholder="search movie"/>
       </div>
         {!isLoggedIn && (

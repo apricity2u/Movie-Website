@@ -20,15 +20,15 @@ export default function HomeMovieCategory({ children, path }) {
   return (
     <>
       <div className="flex-box">
-        <div className="flex-box margin">
+        <div className="sub-title-box">
           <h2 className="sub-title">{children}</h2>
           <Link to={`/${path}`}>
-            <Button>...more</Button>
+            <Button>more</Button>
           </Link>
         </div>
       </div>
-      <ul className="flex-box">
-        {movies.slice(0, 10).map((movie) => {
+      <ul className="flex-box justify-content-center">
+        {movies.slice(0, 5).map((movie) => {
           const { title, poster_path, id } = movie;
           return (
             <li key={id}>

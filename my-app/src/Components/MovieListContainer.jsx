@@ -17,7 +17,7 @@ export default function MovieListContainer({children}) {
   });
 
   return (
-    <div className='flex-box flex-wrap'>
+    <div className='flex-box flex-wrap justify-content-center'>
     {movies.map((movie) => {
       const { title, poster_path, id } = movie;
       return (

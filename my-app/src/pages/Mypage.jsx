@@ -36,7 +36,7 @@ export default function Mypage() {
           );
         })}
       </div>
-      <Button onClick={handleLogout}>Logout</Button>
+      <button onClick={handleLogout} className='button-style'>Logout</button>
     </>
   );
 }
