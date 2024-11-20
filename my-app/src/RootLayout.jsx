@@ -7,7 +7,7 @@ export default function RootLayout() {
     <>
       <RootHeader></RootHeader>
       <Outlet></Outlet>
-      <footer>copyright HAEUN</footer>
+      <footer className="text-center">copyright HAEUN</footer>
     </>
   );
 }
