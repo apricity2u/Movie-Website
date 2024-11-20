@@ -5,7 +5,7 @@ export default function RootHeaderNav({ categories }) {
   return (
     <nav>
       <ul>
-        <li>
+        <li key="Home">
           <Link to="/">Home</Link>
         </li>
         {categories.map((category) => {

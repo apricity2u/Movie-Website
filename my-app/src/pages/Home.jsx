@@ -23,7 +23,7 @@ export default function Home() {
         const { path, title } = category;
 
         return (
-          <li>
+          <li key={title}>
             <HomeMovieCategory path={path}>{title}</HomeMovieCategory>
           </li>
         );

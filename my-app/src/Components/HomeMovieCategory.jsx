@@ -17,25 +17,27 @@ export default function HomeMovieCategory({ children, path }) {
   });
 
   return (
-    <li>
+    <>
       <div style={{ display: "flex", gap: "1rem" }}>
         <h2>{children}</h2>
         <Link to={`/${path}`}>
           <button>...more</button>
         </Link>
       </div>
-      <div style={{ display: "flex", gap: "1rem", textAlign: "center" }}>
+      <ul style={{ display: "flex", gap: "1rem", textAlign: "center" }}>
         {movies.slice(0, 10).map((movie) => {
           const { title, poster_path, id } = movie;
           return (
-            <MovieSimpleDetail
-              title={title}
-              poster_path={poster_path}
-              id={id}
-            ></MovieSimpleDetail>
+            <li key={id}>
+              <MovieSimpleDetail
+                title={title}
+                poster_path={poster_path}
+                id={id}
+              ></MovieSimpleDetail>
+            </li>
           );
         })}
-      </div>
-    </li>
+      </ul>
+    </>
   );
 }
