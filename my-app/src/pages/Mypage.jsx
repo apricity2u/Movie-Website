@@ -5,15 +5,18 @@ import { useDispatch } from "react-redux";
 import { logout } from "../store/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 
-export default function Mypage() {
-  const { likedMovies } = useSelector((state) => state.likedMovies);
+export default function Mypage(){
+  
+  const likedMovies = useSelector((state) => state.likedMovies);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const likedMoviesList = Object.values(likedMovies)
+
   function handleLogout() {
-    dispatch(logout());
-    
-    navigate("/");
+    dispatch(logout())
+
+    navigate('/')
   }
 
   return (
@@ -21,7 +24,7 @@ export default function Mypage() {
       <h2>Mypage</h2>
       <div>내가 찜한 영화</div>
       <div style={{ display: "flex", gap: "1rem" }}>
-        {/* {likedMovies.map((likedMovie) => {
+      {likedMoviesList.map((likedMovie) => {
 
           const {title, poster_path, id} = likedMovie
 
@@ -32,13 +35,8 @@ export default function Mypage() {
               id={id}
             ></MovieSimpleDetail>
           );
-        })} */}
-        <MovieSimpleDetail></MovieSimpleDetail>
-        <MovieSimpleDetail></MovieSimpleDetail>
-        <MovieSimpleDetail></MovieSimpleDetail>
-        <MovieSimpleDetail></MovieSimpleDetail>
+        })}
       </div>
       <button onClick={handleLogout}>로그아웃</button>
     </>
-  );
-}
+)}
