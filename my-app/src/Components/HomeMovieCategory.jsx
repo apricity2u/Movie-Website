@@ -27,7 +27,7 @@ export default function HomeMovieCategory({ children, path }) {
           </Link>
         </div>
       </div>
-      <ul className="flex-box justify-content-center">
+      <ul className="movie-category-style">
         {movies.slice(0, 5).map((movie) => {
           const { title, poster_path, id } = movie;
           return (

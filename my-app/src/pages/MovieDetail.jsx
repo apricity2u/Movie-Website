@@ -7,6 +7,7 @@ import {
 } from "../store/slices/likedMovieSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import MovieSimpleDetail from "../Components/MovieSimpleDetail";
 
 export default function MovieDetail() {
   const [movieDetail, setMovieDetail] = useState({});
@@ -46,48 +47,56 @@ export default function MovieDetail() {
 
   function myMovieStatus() {
     if (!isLoggedIn) {
+      alert('로그인 후 사용 가능합니다.')
       navigate("/login");
     }
 
     setIsLiked(!isLiked);
   }
 
-  const { title, poster_path, overview } = movieDetail;
+  const { title, poster_path, overview, release_date, runtime } = movieDetail;
 
   return (
     <>
-      <h2 className="sub-title margin">MovieDetail</h2>
+      <h2 className="sub-title margin text-center">MovieDetail</h2>
       <div>
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-          alt="사진 불러오는 중"
-          width="300px"
-          height="400px"
-        />
-          <h3>{title}</h3>
-          <button
-            onClick={myMovieStatus}
-            ref={buttonRef}
-            className="button-style"
-          >
-            찜
-          </button>
-        <div>
-          <h4>줄거리</h4>
-          <p>{overview}</p>
+        <div className="movie-detail-box">
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+            alt="영화포스터"
+          />
+          <div>
+            <div className="movie-detail">
+              <h3 className="movie-title">{title}</h3>
+              <h4>Released Date: {`${release_date}`}</h4>
+              <h4>Runing Time: {`${runtime}min`}</h4>
+              <h4>Overview</h4>
+              <p>{overview}</p>
+              <button
+                onClick={myMovieStatus}
+                ref={buttonRef}
+                className="button-style"
+              >
+                ♡
+              </button>
+            </div>
+          </div>
         </div>
         <div>
-          <h4>후기</h4>
-          {movieReviews.map((review) => {
-            const { author, content } = review;
+          <h4 className="text-center">Review</h4>
+          <ul>
+            {movieReviews.map((review) => {
+              const { author, content } = review;
 
-            return (
-              <div key={content}>
-                <div>Reviewer: {author}</div>
-                <p>{content}</p>;
-              </div>
-            );
-          })}
+              return (
+                <li key={content} className="review-style">
+                  <h5>Reviewer: {author}</h5>
+                  <hr />
+                  <p>{content}</p>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </>

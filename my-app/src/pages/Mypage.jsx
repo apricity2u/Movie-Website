@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logout } from "../store/slices/authSlice";
 import { useNavigate } from "react-router-dom";
-import Button from "../Components/Button";
 
 export default function Mypage() {
   const likedMovies = useSelector((state) => state.likedMovies);
@@ -22,7 +21,7 @@ export default function Mypage() {
   return (
     <>
       <h2 className="sub-title margin">Mypage</h2>
-      <h3 className="font-size-bigger">찜한 영화</h3>
+      <h3 className="font-size-bigger">My Movie</h3>
       <div className="flex-box">
         {likedMoviesList.map((likedMovie) => {
           const { title, poster_path, id } = likedMovie;
