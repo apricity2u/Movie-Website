@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { login } from "../store/slices/authSlice";
-import { useNavigate } from "react-router-dom";
+import { replace, useNavigate } from "react-router-dom";
 import Button from "../Components/Button";
 
 export default function LoginForm() {
@@ -13,7 +13,7 @@ export default function LoginForm() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate("/");
+      navigate("/") ;
     }
   });
 
@@ -38,6 +38,7 @@ export default function LoginForm() {
             id="user"
             onChange={handleFormInput}
             placeholder="username"
+            required
           />
           <label htmlFor="password">Password</label>
           <input
@@ -46,6 +47,7 @@ export default function LoginForm() {
             id="password"
             onChange={handleFormInput}
             placeholder="password"
+            required
           />
           <Button>Login</Button>
         </form>
