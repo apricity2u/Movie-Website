@@ -41,7 +41,7 @@ export default function RootHeader() {
         )}
       </div>
       <RootHeaderNav categories={categories}></RootHeaderNav>
-      <RootHeaderSearch></RootHeaderSearch>
+      <RootHeaderSearch categories={categories}></RootHeaderSearch>
     </header>
   );
 }

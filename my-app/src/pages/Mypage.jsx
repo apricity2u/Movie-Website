@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logout } from "../store/slices/authSlice";
 import { useNavigate } from "react-router-dom";
+import Button from "../Components/Button";
 
 export default function Mypage() {
   const likedMovies = useSelector((state) => state.likedMovies);
@@ -35,7 +36,9 @@ export default function Mypage() {
           );
         })}
       </div>
-      <button onClick={handleLogout} className='button-style'>Logout</button>
+      <Button onClick={handleLogout} className="button-style">
+        Logout
+      </Button>
     </>
   );
 }
