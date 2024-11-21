@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import movieApi from "../api/movieApi";
+import MovieSimpleDetail from "./MovieSimpleDetail";
 
-export default function RootHeaderSearch({categories}) {
+export default function RootHeaderSearch() {
+  const [movieInput, setMovieInput] = useState();
 
-  
+  async function handleMovieInput(e) {
+    const data = await movieApi.searchMovie(e.target.value);
 
-  function handleMovieInput() {
-      
+    setMovieInput(data.results);
   }
 
   return (
@@ -18,6 +23,19 @@ export default function RootHeaderSearch({categories}) {
         onChange={handleMovieInput}
         className="movie-search-style"
       />
+      <ul className="movie-category-style">
+        {movieInput.slice(0, 5).map((movie) => {
+          const { id, title, poster_path } = movie;
+
+          return (
+            <MovieSimpleDetail
+              title={title}
+              id={id}
+              poster_path={poster_path}
+            ></MovieSimpleDetail>
+          );
+        })}
+      </ul>
     </div>
   );
 }
