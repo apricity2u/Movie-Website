@@ -178,3 +178,10 @@ ul {
 .flex-wrap {
   flex-wrap: wrap;
 }
+
+.not-found {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 4rem;
+}

@@ -7,6 +7,7 @@ import TopRatedList from "../pages/TopRatedList";
 import MovieDetail from "../pages/MovieDetail";
 import Mypage from "../pages/Mypage";
 import LoginForm from "../pages/LoginForm";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -18,30 +19,33 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/now_playing",
-        element: <NowPlayingList />,
+        path: '/now_playing',
+        element: <NowPlayingList />
       },
       {
-        path: "/popular",
-        element: <PopularList />,
+        path: '/popular',
+        element: <PopularList />
       },
       {
-        path: "/top_rated",
-        element: <TopRatedList />,
+        path: '/top_rated',
+        element: <TopRatedList />
       },
       {
-        path: "/mypage",
-        element: <Mypage />,
+        path: '/mypage',
+        element: <Mypage />
       },
       {
-        path: "/login",
-        element: <LoginForm />,
+        path: '/login',
+        element: <LoginForm />
       },
       {
-        path: "/:movieId",
-        element: <MovieDetail />,
-      },
+        path: '/:movieId',
+        element: <MovieDetail />
+      }
     ],
+  },{
+      path:'/not_found',
+      element: <NotFound/>
   }
 ]);
 

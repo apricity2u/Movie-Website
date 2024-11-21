@@ -12,7 +12,7 @@ export default function MovieDetail() {
   const [movieDetail, setMovieDetail] = useState({});
   const [movieReviews, setMovieReview] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
 
   const { isLoggedIn } = useSelector((state) => state.auth);
   const likedMovies = useSelector((state) => state.likedMovies);
@@ -29,18 +29,16 @@ export default function MovieDetail() {
       try {
         const data = await movieApi.getMovieDetail(movieId);
         const reviewData = await movieApi.getMovieReview(movieId);
-  
+
         setMovieDetail(data);
         setMovieReview(reviewData.results);
-  
+
         buttonRef.current.style.backgroundColor =
-        movieId in likedMovies ? "pink" : "";
-      }catch(err){
-        
-        if(!error) {
-          setError("유효하지 않은 페이지입니다")
-          alert("유효하지 않은 페이지입니다.")
-          navigate("/", {replace: true})
+          movieId in likedMovies ? "pink" : "";
+      } catch (err) {
+        if (!error) {
+          setError("유효하지 않은 페이지입니다");
+          navigate("/not_found", { replace: true });
         }
       }
     }
@@ -56,7 +54,7 @@ export default function MovieDetail() {
 
   function myMovieStatus() {
     if (!isLoggedIn) {
-      alert('로그인 후 사용 가능합니다.')
+      alert("로그인 후 사용 가능합니다.");
       navigate("/login");
     }
 
