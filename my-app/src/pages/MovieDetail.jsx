@@ -35,7 +35,7 @@ export default function MovieDetail() {
       movieId in likedMovies ? "pink" : "";
     }
     fetchMovieDetail();
-  }, []);
+  }, [movieId]);
 
   useEffect(() => {
     dispatch(
