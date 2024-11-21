@@ -7,7 +7,6 @@ import {
 } from "../store/slices/likedMovieSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import MovieSimpleDetail from "../Components/MovieSimpleDetail";
 
 export default function MovieDetail() {
   const [movieDetail, setMovieDetail] = useState({});
@@ -33,7 +32,7 @@ export default function MovieDetail() {
       setMovieReview(reviewData.results);
 
       buttonRef.current.style.backgroundColor =
-        movieId in likedMovies ? "pink" : "";
+      movieId in likedMovies ? "pink" : "";
     }
     fetchMovieDetail();
   }, []);

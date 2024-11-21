@@ -5,7 +5,7 @@ export default function RootHeaderSearch({categories}) {
   
 
   function handleMovieInput() {
-
+      
   }
 
   return (
@@ -18,7 +18,6 @@ export default function RootHeaderSearch({categories}) {
         onChange={handleMovieInput}
         className="movie-search-style"
       />
-      dfadfsaf
     </div>
   );
 }
