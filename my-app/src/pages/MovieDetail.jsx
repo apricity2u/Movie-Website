@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { replace, useNavigate, useParams } from "react-router-dom";
 import movieApi from "../api/movieApi";
 import {
   addLikedMovie,
@@ -12,6 +12,7 @@ export default function MovieDetail() {
   const [movieDetail, setMovieDetail] = useState({});
   const [movieReviews, setMovieReview] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
+  const [error, setError] = useState(false)
 
   const { isLoggedIn } = useSelector((state) => state.auth);
   const likedMovies = useSelector((state) => state.likedMovies);
@@ -25,14 +26,23 @@ export default function MovieDetail() {
 
   useEffect(() => {
     async function fetchMovieDetail() {
-      const data = await movieApi.getMovieDetail(movieId);
-      const reviewData = await movieApi.getMovieReview(movieId);
-
-      setMovieDetail(data);
-      setMovieReview(reviewData.results);
-
-      buttonRef.current.style.backgroundColor =
-      movieId in likedMovies ? "pink" : "";
+      try {
+        const data = await movieApi.getMovieDetail(movieId);
+        const reviewData = await movieApi.getMovieReview(movieId);
+  
+        setMovieDetail(data);
+        setMovieReview(reviewData.results);
+  
+        buttonRef.current.style.backgroundColor =
+        movieId in likedMovies ? "pink" : "";
+      }catch(err){
+        
+        if(!error) {
+          setError("유효하지 않은 페이지입니다")
+          alert("유효하지 않은 페이지입니다.")
+          navigate("/", {replace: true})
+        }
+      }
     }
     fetchMovieDetail();
   }, [movieId]);
@@ -54,6 +64,10 @@ export default function MovieDetail() {
   }
 
   const { title, poster_path, overview, release_date, runtime } = movieDetail;
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <>

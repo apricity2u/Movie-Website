@@ -147,9 +147,6 @@ ul {
 
 .form-style > input {
   margin-bottom: 1rem;
-}
-
-form > input {
   height: 30px;
   width: 600px;
 }

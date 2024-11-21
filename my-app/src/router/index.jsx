@@ -7,7 +7,6 @@ import TopRatedList from "../pages/TopRatedList";
 import MovieDetail from "../pages/MovieDetail";
 import Mypage from "../pages/Mypage";
 import LoginForm from "../pages/LoginForm";
-import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -43,11 +42,7 @@ const router = createBrowserRouter([
         element: <MovieDetail />,
       },
     ],
-  },
-  {
-    path: "/not_found",
-    element: <NotFound />,
-  },
+  }
 ]);
 
 export default router;
