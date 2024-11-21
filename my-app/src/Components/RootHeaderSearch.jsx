@@ -18,6 +18,7 @@ export default function RootHeaderSearch({categories}) {
         onChange={handleMovieInput}
         className="movie-search-style"
       />
+      dfadfsaf
     </div>
   );
 }
