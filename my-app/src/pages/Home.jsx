@@ -23,7 +23,7 @@ export default function Home() {
         const { path, title } = category;
 
         return (
-          <li key={title}>
+          <li key={title} className="movie-category-box">
             <HomeMovieCategory path={path}>{title}</HomeMovieCategory>
           </li>
         );

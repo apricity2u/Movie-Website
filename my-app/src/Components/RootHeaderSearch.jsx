@@ -3,29 +3,39 @@ import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import movieApi from "../api/movieApi";
 import MovieSimpleDetail from "./MovieSimpleDetail";
+import Button from "./Button";
 
 export default function RootHeaderSearch() {
+  const [movieFormData, setMovieFormData] = useState();
   const [movieInput, setMovieInput] = useState();
 
-  async function handleMovieInput(e) {
-      const data = await movieApi.searchMovie(e.target.value);
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const data = await movieApi.searchMovie(movieInput);
 
-      setMovieInput(data.results);
+    setMovieFormData(data.results);
+  }
+
+  function handleMovieInput(e) {
+    setMovieInput(e.target.value);
   }
 
   return (
     <div className="movie-search-bar">
-      <input
-        type="text"
-        name="search"
-        id="search"
-        placeholder="Search movie what you want !"
-        onChange={handleMovieInput}
-        className="movie-search-style"
-      />
-      {movieInput && (
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Search movie what you want !"
+          onChange={handleMovieInput}
+          className="movie-search-style"
+        />
+        <Button>Search!</Button>
+      </form>
+      {movieFormData && (
         <ul className="movie-category-style">
-          {movieInput.slice(0, 5).map((movie) => {
+          {movieFormData.slice(0, 5).map((movie) => {
             const { id, title, poster_path } = movie;
 
             return (
