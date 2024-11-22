@@ -22,14 +22,13 @@ export default function RootHeaderSearch() {
 
   return (
     <div className="movie-search-bar">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="movie-search-style">
         <input
           type="text"
           name="search"
           id="search"
           placeholder="Search movie what you want !"
           onChange={handleMovieInput}
-          className="movie-search-style"
         />
         <Button>Search!</Button>
       </form>

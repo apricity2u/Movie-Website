@@ -58,13 +58,12 @@ ul {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  width: 30%;
+  width: 10%;
   height: 25px;
   margin: 1rem;
-}
-
-.movie-search-style > input {
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .sub-title-box {
