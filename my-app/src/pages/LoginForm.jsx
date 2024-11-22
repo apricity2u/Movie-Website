@@ -13,9 +13,9 @@ export default function LoginForm() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate("/") ;
+      navigate(-1) ;
     }
-  });
+  },[isLoggedIn]);
 
   function handleSubmit(e) {
     e.preventDefault();

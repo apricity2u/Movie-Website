@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import HomeMovieCategory from "../Components/HomeMovieCategory";
 
 export default function Home() {
+
   const categories = [
     {
       path: "now_playing",
@@ -16,6 +17,8 @@ export default function Home() {
       title: "Top Rated",
     },
   ];
+
+  
 
   return (
     <ul>
