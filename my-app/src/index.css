@@ -157,6 +157,16 @@ ul {
   width: 600px;
 }
 
+.reset-button {
+  background-color: white;
+  border: none;
+  display: inline;
+}
+
+.gap {
+  gap : 10px
+}
+
 .review-box {
   box-sizing: border-box;
   padding: 1rem;
