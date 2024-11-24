@@ -29,7 +29,7 @@ export default function LoginForm() {
 
   return (
     !isLoggedIn && (
-      <div>
+      <div className="form-box">
         <form onSubmit={handleSubmit} className="form-style">
           <label htmlFor="user">Username</label>
           <input
