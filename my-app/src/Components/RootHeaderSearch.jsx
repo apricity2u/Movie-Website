@@ -4,10 +4,7 @@ import MovieSimpleDetail from "./MovieSimpleDetail";
 import Button from "./Button";
 import { useSelector } from "react-redux";
 
-export default function RootHeaderSearch() {
-
-  const { isLoggedIn } = useSelector((state) => state.auth);
-  
+export default function RootHeaderSearch() {  
   const [movieFormData, setMovieFormData] = useState();
   const [movieInput, setMovieInput] = useState();
   const formRef = useRef();
@@ -35,12 +32,6 @@ export default function RootHeaderSearch() {
     }
 
     setMovieInput(e.target.value);
-  }
-
-  // 로그인 창에서는 검색창 사라지게!
-  if (!isLoggedIn) {
-    
-    return null
   }
 
   return (

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Components/Button";
 
 export default function Mypage() {
+  const { isLoggedIn } = useSelector((state) => state.auth);
   const likedMovies = useSelector((state) => state.likedMovies);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -16,6 +17,10 @@ export default function Mypage() {
   function handleLogout() {
     dispatch(logout());
 
+    navigate("/");
+  }
+
+  if (isLoggedIn === false) {
     navigate("/");
   }
 
