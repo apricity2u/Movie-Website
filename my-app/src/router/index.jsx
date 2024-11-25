@@ -35,17 +35,17 @@ const router = createBrowserRouter([
         element: <Mypage />
       },
       {
-        path: '/login',
-        element: <LoginForm />
-      },
-      {
         path: '/:movieId',
         element: <MovieDetail />
       }
     ],
   },{
-      path:'/not_found',
-      element: <NotFound/>
+    path:'/not_found',
+    element: <NotFound/>
+  },
+  {
+    path: '/login',
+    element: <LoginForm />
   }
 ]);
 
