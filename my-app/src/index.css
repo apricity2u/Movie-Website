@@ -52,6 +52,7 @@ ul {
   align-items: center;
   margin: 2rem;
   box-sizing: border-box;
+  gap: 10px;
 }
 
 .movie-search-style {

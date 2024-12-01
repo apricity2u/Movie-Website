@@ -8,6 +8,7 @@ import MovieDetail from "../pages/MovieDetail";
 import Mypage from "../pages/Mypage";
 import LoginForm from "../pages/LoginForm";
 import NotFound from "../pages/NotFound";
+import MovieSearch from "../pages/MovieSearch";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/mypage',
         element: <Mypage />
+      },
+      {
+        path: '/search',
+        element: <MovieSearch />
       },
       {
         path: '/:movieId',
