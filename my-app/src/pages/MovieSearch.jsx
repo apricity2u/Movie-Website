@@ -1,29 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import movieApi from "../api/movieApi";
+import MovieSimpleDetail from "../Components/MovieSimpleDetail";
 
-export default function MovieSearch(movieInput) {
+export default function MovieSearch() {
+  const [movieSearchData, setMovieSearchData] = useState();
+
   const location = useLocation();
-
   const movieInput = location.state;
+
+  useEffect(() => {
+    async function fetchSearchResults() {
+      try {
+        const data = await movieApi.searchMovie(movieInput);
+        setMovieSearchData(data);
+      } catch {
+        console.error("에러다!");
+      }
+    }
+    fetchSearchResults();
+  }, [movieInput]);
 
   return (
     <>
-      {movieInput && (
-        <ul className="movie-category-style margin">
-          {movieData.slice(0, 5).map((movie) => {
-            const { id, title, poster_path } = movie;
-
+      {movieSearchData && (
+        <div className="movie-category-style flex-wrap">
+          {movieSearchData.map((movie) => {
+            const { title, poster_path, id } = movie;
             return (
-              <li key={id}>
-                <MovieSimpleDetail
-                  title={title}
-                  id={id}
-                  poster_path={poster_path}
-                ></MovieSimpleDetail>
-              </li>
+              <MovieSimpleDetail
+                title={title}
+                poster_path={poster_path}
+                id={id}
+              ></MovieSimpleDetail>
             );
           })}
-        </ul>
+        </div>
       )}
     </>
   );

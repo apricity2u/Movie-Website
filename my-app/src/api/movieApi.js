@@ -19,7 +19,7 @@ const movieApi = {
   },
   searchMovie: async (movieTitle) => {
     const response = await api.get(`/search/movie?query=${movieTitle}&${params}`)
-    return response.data
+    return response.data.results
   }
 };
 

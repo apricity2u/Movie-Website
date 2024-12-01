@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function RootHeaderSearch() {
-  const [movieInput, setMovieInput] = useState();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function handleMovieInput(e) {
     if (e.target.value) {
-      setMovieInput(e.target.value);
-
-      navigate("/search")
+      navigate("/search", {state: e.target.value})
     }
   }
-
   return (
     <>
       <div className="movie-search-bar">
