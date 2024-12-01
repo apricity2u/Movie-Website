@@ -12,8 +12,10 @@ export default function MovieSearch() {
   useEffect(() => {
     async function fetchSearchResults() {
       try {
-        const data = await movieApi.searchMovie(movieInput);
-        setMovieSearchData(data);
+        if (movieInput) {
+          const data = await movieApi.searchMovie(movieInput);
+          setMovieSearchData(data);
+        }
       } catch {
         console.error("에러다!");
       }
@@ -23,7 +25,7 @@ export default function MovieSearch() {
 
   return (
     <>
-      {movieSearchData && (
+      {movieSearchData ? (
         <div className="movie-category-style flex-wrap">
           {movieSearchData.map((movie) => {
             const { title, poster_path, id } = movie;
@@ -36,6 +38,8 @@ export default function MovieSearch() {
             );
           })}
         </div>
+      ) : (
+        <div>어떤 영화를 찾고 계신가요?</div>
       )}
     </>
   );

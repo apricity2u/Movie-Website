@@ -6,8 +6,12 @@ export default function RootHeaderSearch() {
   const navigate = useNavigate();
 
   function handleMovieInput(e) {
-    if (e.target.value) {
-      navigate("/search", {state: e.target.value})
+
+    const movieInput = e.target.value
+
+    if (movieInput) {
+      navigate("/search", {state: movieInput})
+      movieInput()
     }
   }
   return (
